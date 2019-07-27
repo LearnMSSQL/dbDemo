@@ -4,7 +4,8 @@ CREATE TABLE [Production].[Location]
 [Name] [dbo].[Name] NOT NULL,
 [CostRate] [smallmoney] NOT NULL CONSTRAINT [DF_Location_CostRate] DEFAULT ((0.00)),
 [Availability] [decimal] (8, 2) NOT NULL CONSTRAINT [DF_Location_Availability] DEFAULT ((0.00)),
-[ModifiedDate] [datetime] NOT NULL CONSTRAINT [DF_Location_ModifiedDate] DEFAULT (getdate())
+[ModifiedDate] [datetime] NOT NULL CONSTRAINT [DF_Location_ModifiedDate] DEFAULT (getdate()),
+[Observaciones] [varchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL
 ) ON [PRIMARY]
 GO
 ALTER TABLE [Production].[Location] ADD CONSTRAINT [CK_Location_Availability] CHECK (([Availability]>=(0.00)))
